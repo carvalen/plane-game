@@ -82,4 +82,11 @@ Sonido
 
 LINKS
 
-s
+Trello:
+https://trello.com/b/mIU9aEKx/proyecto
+
+GIT:
+https://github.com/carvalen/plane-game.git
+
+
+
