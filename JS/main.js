@@ -8,10 +8,10 @@ const buildDom = (html) => {
 
 const buildSplashScreen = () => {
     buildDom(`
-        <section class="pantalla-inicio">
+        <section class="game-screen">
             <h1>¡SALVA AL PARACAIDISTA!</h1>
             <p>Usa [&larr;][&uarr;][&darr;][&rarr;] para moverte</p>
-            <button>JUGAR</button>
+            <button>EMPEZAR</button>
         </section>
         `);
     const startButton = document.querySelector("button");
@@ -20,14 +20,14 @@ const buildSplashScreen = () => {
 
 const buildGameScreen = () => {
     buildDom(`
-            <section class="pantalla-juego">
+            <section class="game-screen">
                 <canvas></canvas>
             </section>
             
         `);
 
-    const width = document.querySelector(".pantalla-juego").offsetWidth;
-    const height = document.querySelector(".pantalla-juego").offsetHeight;
+    const width = document.querySelector(".game-screen").offsetWidth;
+    const height = document.querySelector(".game-screen").offsetHeight;
 
     const canvasElement = document.querySelector("canvas");
 
@@ -38,7 +38,7 @@ const buildGameScreen = () => {
     game.gameOverCallback(buildGameOver);
 
     game.startLoop();
-//movimiento arriba y abajo
+
     const setPlayerDirection = (event) => {
     if (event.code === "ArrowUp") {
         game.player.setDirection(-1);
@@ -49,13 +49,12 @@ const buildGameScreen = () => {
 
     document.addEventListener("keydown", setPlayerDirection);
 };
-//3 pantalla
+
 const buildGameOver = () => {
     buildDom(`
             <section class="game-over">
-                <h1>OH, OH! HAS PERDIDO!</h1>
-                <p>Vuelve a intentarlo</p>
-                <button>REINICIAR</button>
+                <h1>¡HAS PERDIDO!</h1>
+                <button>VUELVE A EMPEZAR</button>
             </section>
         `);
 

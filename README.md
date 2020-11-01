@@ -88,5 +88,6 @@ https://trello.com/b/mIU9aEKx/proyecto
 GIT:
 https://github.com/carvalen/plane-game.git
 
-
+Wireframes:
+https://docs.google.com/document/d/19PfCnS3Cew26fmryYIuQXpGTS2GLtq-nb5wfobflC3Q/edit?usp=sharing
 
