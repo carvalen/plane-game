@@ -8,10 +8,13 @@ const buildDom = (html) => {
 
 const buildSplashScreen = () => {
     buildDom(`
-        <section class="game-screen">
-            <h1 id="titulo">¡SALVA AL PARACAIDISTA!</h1>
-            <button id="start-button">EMPEZAR</button>
-            <p>Usa [&larr;][&uarr;][&darr;][&rarr;] para moverte</p>
+        <section class="game-screen" style="height:580px;">
+        <div class="main">
+            <h1 id="titulo">SAVE THE SKY DIVER!</h1>
+            
+            <button id="start-button">START</button>
+            <p class="instructions">Use [&larr;][&uarr;][&darr;][&rarr;] to move the plane!</p>
+            </div>
         </section>
         `);
     const startButton = document.querySelector("button");
@@ -53,8 +56,8 @@ const buildGameScreen = () => {
 const buildGameOver = () => {
     buildDom(`
             <section class="game-over">
-                <h1>¡HAS PERDIDO!</h1>
-                <button>VUELVE A EMPEZAR</button>
+                <h1>GAME OVER</h1>
+                <button>RESTART</button>
             </section>
         `);
 
