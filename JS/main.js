@@ -9,9 +9,9 @@ const buildDom = (html) => {
 const buildSplashScreen = () => {
     buildDom(`
         <section class="game-screen">
-            <h1>¡SALVA AL PARACAIDISTA!</h1>
+            <h1 id="titulo">¡SALVA AL PARACAIDISTA!</h1>
+            <button id="start-button">EMPEZAR</button>
             <p>Usa [&larr;][&uarr;][&darr;][&rarr;] para moverte</p>
-            <button>EMPEZAR</button>
         </section>
         `);
     const startButton = document.querySelector("button");
