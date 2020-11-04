@@ -25,6 +25,7 @@ const buildGameScreen = () => {
     buildDom(`
             <section class="game-screen">
                 <canvas></canvas>
+                
             </section>
             
         `);
@@ -41,17 +42,48 @@ const buildGameScreen = () => {
     game.gameOverCallback(buildGameOver);
 
     game.startLoop();
+    
 
-    const setPlayerDirection = (event) => {
-    if (event.code === "ArrowUp") {
-        game.player.setDirection(-1);
-    } else if (event.code === "ArrowDown") {
-        game.player.setDirection(1);
-    }
-    };
-
-    document.addEventListener("keydown", setPlayerDirection);
-};
+    
+//funciona en la consola pero desaparece la imagen
+//     document.addEventListener("keydown", setPlayerDirection =>{
+//         switch (setPlayerDirection.keyCode) {
+//             case 38:
+//                 game.player.setDirection ();
+//                 console.log ('up')
+//                 break;
+//                 case 40:
+//                 game.player.setDirection ();
+//                 console.log ('down')
+//                 break;
+//                 case 37:
+//                 game.player.setDirection ();
+//                 console.log ('left')
+//                 break;
+//                 case 39:
+//                 game.player.setDirection ();
+//                 console.log ('right')
+//                 break;
+//         }
+        
+//     });  
+// };
+}
+ const setPlayerDirection = (event)=> {
+     const key = event.code
+     if (key === "ArrowUp") {
+         game.player.setDirectionsUpandDown(-1)
+     }
+     if(key === "ArrowDown") {
+         game.player.setDirectionsUpandDown(1)
+     }
+     if(key === "ArrowLeft") {
+         game.player.setDirectionsLeftandRight(-1)
+ } if(key === "ArrowRight") {
+     game.player.setDirectionsLeftandRight(1)
+ };
+ document.addEventListener("keydown", setPlayerDirection);
+ }
 
 const buildGameOver = () => {
     buildDom(`

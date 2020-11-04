@@ -10,7 +10,7 @@ constructor(canvas, y) {
     this.y = y;
     this.speed = 3;
     this.direction = -1;
-    this.img = "./Imagenes/pajaro.png"
+    this.img = "./Imagenes/pajaro3.gif"
 }
 update() {
     this.x = this.x + this.direction * this.speed;
@@ -24,3 +24,4 @@ setDirection(direction) {
     this.direction = direction;
 }
 };
+

@@ -12,6 +12,7 @@ constructor(canvas) {
 
 startLoop() {
     this.player = new Player(this.canvas, 2);
+    this.sky = new Skydiver(this.canvas)//test
     const loop = () => {
     if (Math.random() > 0.99) {//frecuencia enemies
         const y = Math.random() * this.canvas.height;
@@ -31,6 +32,7 @@ startLoop() {
 
 updateCanvas() {
     this.player.update();
+    this.sky.update();
     this.enemies.forEach((enemy) => {
     enemy.update();
     });
@@ -42,6 +44,7 @@ clearCanvas() {
 
 drawCanvas() {
     this.player.draw();
+    this.sky.draw();
     this.enemies.forEach((enemy) => {
     enemy.draw();
     });
