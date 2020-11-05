@@ -42,28 +42,6 @@ const main = () => {
         game.gameOverCallback(buildGameOver);
         game.startLoop();
 
-        //funciona en la consola pero desaparece la imagen
-        //     document.addEventListener("keydown", setPlayerDirection =>{
-        //         switch (setPlayerDirection.keyCode) {
-        //             case 38:
-        //                 game.player.setDirection ();
-        //                 console.log ('up')
-        //                 break;
-        //                 case 40:
-        //                 game.player.setDirection ();
-        //                 console.log ('down')
-        //                 break;
-        //                 case 37:
-        //                 game.player.setDirection ();
-        //                 console.log ('left')
-        //                 break;
-        //                 case 39:
-        //                 game.player.setDirection ();
-        //                 console.log ('right')
-        //                 break;
-        //         }
-        // };
-
         const setPlayerDirection = (event) => {
             const key = event.code;
 
@@ -82,6 +60,7 @@ const main = () => {
 
         document.addEventListener("keydown", setPlayerDirection);
     }
+    
 
     const buildGameOver = () => {
         buildDom(`

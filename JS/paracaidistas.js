@@ -2,8 +2,8 @@
 
 class Skydiver {
     constructor(canvas, x) {
-        this.width = 50
-        this.height = 70
+        this.width = 60
+        this.height = 80
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.x = x;

@@ -2,6 +2,7 @@
 
 class Enemy {
     constructor(canvas, y) {
+        this.size = 40;
         this.width = 80
         this.height = 60
         this.canvas = canvas;

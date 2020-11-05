@@ -12,10 +12,11 @@ class Game {
 
     startLoop() {
         this.player = new Player(this.canvas, 2);
-        this.sky = new Skydiver(this.canvas, 50) // TODO: Corregir parametro X por el correcto.
+        this.sky = new Skydiver(this.canvas, 50) // parametro X 
         const loop = () => {
-            if (Math.random() > 0.99) {//frecuencia enemies
+            if (Math.random() > 0.99) {//frecuencia
                 const y = Math.random() * this.canvas.height;
+                
                 this.enemies.push(new Enemy(this.canvas, y));
             }
             this.checkAllCollisions();
@@ -31,7 +32,7 @@ class Game {
     }
 
     updateCanvas() {
-        this.player.update();
+        // this.player.update();
         this.sky.update();
         this.enemies.forEach((enemy) => {
             enemy.update();
