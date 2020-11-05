@@ -9,7 +9,7 @@ constructor(canvas, lives) {
     this.width = 150;//tamaño imagen
     this.height = 120;
     this.img = "./Imagenes/aviador.gif"
-    this.speed = 3;
+    this.speed = 8;
     this.direction = 0;
     this.lives = lives;
 }
@@ -44,29 +44,30 @@ checkScreen() {//definir bordes aun no va...
     this.direction = -1;
     }
 }
-checkCollisionEnemy(enemy) {
-    if (
-      (this.y + 10 < enemy.y + enemy.height && this.x + 15 < enemy.x + enemy.width && this.x + this.width - 15 > enemy.x) ||
-      (enemy.y + enemy.height > this.y && enemy.x < this.x + this.width && this.x < enemy.x + enemy.width)
-    ) {
-      return true
-      
-    }else {
-        return false;
-    }
 // checkCollisionEnemy(enemy) {
-//     const collideRight = this.x + this.size / 2 > enemy.x - enemy.size / 2;
-//     const collideLeft = this.x - this.size / 2 < enemy.x + enemy.size / 2;
-//     const collideTop = this.y + this.size / 2 > enemy.y - enemy.size / 2;
-//     const collideBottom = this.y - this.size / 2 < enemy.y + enemy.size / 2;
+//     if (
+//       (this.y + 10 < enemy.y + enemy.height && this.x + 15 < enemy.x + enemy.width && this.x + this.width - 15 > enemy.x) ||
+//       (enemy.y + enemy.height > this.y && enemy.x < this.x + this.width && this.x < enemy.x + enemy.width)
+//     ) {
+//       return true
 
-//     if (collideRight && collideLeft && collideTop && collideBottom) {
-//     return true;
+//     }else {
+//         return false;
 //     }
-
-//     return false;
 // }
-}
+checkCollisionEnemy(enemy) {
+     const collideRight = this.x + this.size / 2 > enemy.x - enemy.size / 2;
+     const collideLeft = this.x - this.size / 2 < enemy.x + enemy.size / 2;
+     const collideTop = this.y + this.size / 2 > enemy.y - enemy.size / 2;
+     const collideBottom = this.y - this.size / 2 < enemy.y + enemy.size / 2;
+
+     if (collideRight && collideLeft && collideTop && collideBottom) {
+     return true;
+     }
+
+     return false;
+ }
+
 loseLive() {
     this.lives--;
 }
