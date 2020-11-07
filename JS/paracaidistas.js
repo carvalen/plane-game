@@ -7,18 +7,18 @@ class Skydiver {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.x = x;
-        this.y = this.canvas.height;
+        this.y = 10;
         this.speed = 1;
         this.direction = 1;//de arriba a abajo
         this.img = "./Imagenes/paracaidista.gif"
     }
     update() {
-        this.x = this.x + this.direction * this.speed; //vertical
+        this.y = this.y + this.direction * this.speed; 
     }
     draw() {
         let diver = new Image();
         diver.src = this.img;
-        this.ctx.drawImage(diver, this.y, this.x, this.width, this.height);
+        this.ctx.drawImage(diver, this.x, this.y, this.width, this.height);
     }
     setDirection(direction) {
         this.direction = direction;

@@ -10,7 +10,7 @@ constructor(canvas, lives) {
     this.width = 140;//tamaño imagen
     this.height = 110;
     this.img = "./Imagenes/aviador.gif"
-    this.speed = 30;
+    this.speed = 40;
     this.direction = 0;
     this.lives = lives;
 }
@@ -56,6 +56,20 @@ checkCollisionEnemy(enemy) {
     const collideLeft = this.x - this.size / 2 < enemy.x + enemy.size / 2;
     const collideTop = this.y + this.size / 2 > enemy.y - enemy.size / 2;
     const collideBottom = this.y - this.size / 2 < enemy.y + enemy.size / 2;
+    console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
+    if (collideRight && collideLeft && collideTop && collideBottom) {
+    return true;
+    }
+
+return false;
+
+}
+
+checkCollisionDiver(paracaidistas) {
+    const collideRight = this.x + this.size / 2 > paracaidistas.x - paracaidistas.size / 2;
+    const collideLeft = this.x - this.size / 2 < paracaidistas.x + paracaidistas.size / 2;
+    const collideTop = this.y + this.size / 2 > paracaidistas.y - paracaidistas.size / 2;
+    const collideBottom = this.y - this.size / 2 < paracaidistas.y + paracaidistas.size / 2;
     console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
     if (collideRight && collideLeft && collideTop && collideBottom) {
     return true;

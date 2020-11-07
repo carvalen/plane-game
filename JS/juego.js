@@ -6,19 +6,25 @@ class Game {
         this.ctx = this.canvas.getContext("2d");
         this.player;
         this.enemies = [];
-        this.sky;
+        this.sky = [];
         this.isGameOver = false;
+        // this.score = 0;
     }
 
     startLoop() {
         this.player = new Player(this.canvas, 2);
-        this.sky = new Skydiver(this.canvas, 50) // parametro X 
+        // this.sky = new Skydiver(this.canvas, 50) // parametro X 
         const loop = () => {
             if (Math.random() > 0.99) {//frecuencia
                 const y = Math.random() * this.canvas.height;
                 
                 this.enemies.push(new Enemy(this.canvas, y));
             }
+            if (Math.random() > 0.99) {//frecuencia
+                const x = Math.random() * this.canvas.width;
+                this.sky.push(new Skydiver(this.canvas, x));
+            }
+            
             this.checkAllCollisions();
             this.updateCanvas();
             this.clearCanvas();
@@ -33,7 +39,10 @@ class Game {
 
     updateCanvas() {
         // this.player.update();
-        this.sky.update();
+        // this.sky.update();
+        this.sky.forEach(function (paracaidistas) {
+            paracaidistas.update();
+            });
         this.enemies.forEach((enemy) => {
             enemy.update();
         });
@@ -45,7 +54,10 @@ class Game {
 
     drawCanvas() {
         this.player.draw();
-        this.sky.draw();
+        // this.sky.draw();
+        this.sky.forEach((paracaidistas) => {
+            paracaidistas.draw();
+        });
         this.enemies.forEach((enemy) => {
             enemy.draw();
         });
@@ -53,6 +65,12 @@ class Game {
 
     checkAllCollisions() {
         this.player.checkScreen();
+        this.sky.forEach((paracaidistas, index) => {
+            if (this.player.checkCollisionDiver(paracaidistas)) {
+                
+                this.sky.splice(index, 1);
+            }
+        });
 
         this.enemies.forEach((enemy, index) => {
             if (this.player.checkCollisionEnemy(enemy)) {
@@ -65,6 +83,7 @@ class Game {
                 }
             }
         });
+        
     }
 
     gameOverCallback(callback) {
