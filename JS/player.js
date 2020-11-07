@@ -10,7 +10,7 @@ constructor(canvas, lives) {
     this.width = 140;//tamaño imagen
     this.height = 110;
     this.img = "./Imagenes/aviador.gif"
-    this.speed = 20;
+    this.speed = 30;
     this.direction = 0;
     this.lives = lives;
 }

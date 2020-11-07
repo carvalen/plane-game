@@ -9,7 +9,7 @@ class Enemy {
         this.ctx = this.canvas.getContext("2d");
         this.x = this.canvas.width;
         this.y = y;
-        this.speed = 3;
+        this.speed = 5;
         this.direction = -1;
         this.img = "./Imagenes/pajaro3.gif"
     }
