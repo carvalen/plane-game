@@ -65,11 +65,11 @@ return false;
 
 }
 
-checkCollisionDiver(paracaidistas) {
-    const collideRight = this.x + this.size / 2 > paracaidistas.x - paracaidistas.size / 2;
-    const collideLeft = this.x - this.size / 2 < paracaidistas.x + paracaidistas.size / 2;
-    const collideTop = this.y + this.size / 2 > paracaidistas.y - paracaidistas.size / 2;
-    const collideBottom = this.y - this.size / 2 < paracaidistas.y + paracaidistas.size / 2;
+checkCollisionDiver(divers) {
+    const collideRight = this.x + this.size / 2 > divers.x - divers.size / 2;
+    const collideLeft = this.x - this.size / 2 < divers.x + divers.size / 2;
+    const collideTop = this.y + this.size / 2 > divers.y - divers.size / 2;
+    const collideBottom = this.y - this.size / 2 < divers.y + divers.size / 2;
     console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
     if (collideRight && collideLeft && collideTop && collideBottom) {
     return true;
@@ -78,18 +78,6 @@ checkCollisionDiver(paracaidistas) {
 return false;
 
 }
-
-// checkCollisionEnemy(enemy) {
-//     if (
-//     (this.y + 10 < enemy.y + enemy.height && this.x + 15 < enemy.x + enemy.width && this.x + this.width - 15 > enemy.x) ||
-//     (enemy.y + enemy.height > this.y && enemy.x < this.x + this.width && this.x < enemy.x + enemy.width)
-//     ) {
-//     return true
-
-//     }else {
-//         return false;
-// }
-// }
 
 
 loseLive() {
