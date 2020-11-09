@@ -13,6 +13,7 @@ constructor(canvas, lives) {
     this.speed = 40;
     this.direction = 0;
     this.lives = lives;
+    this.points = 0;
 }
 
 setDirectionsUpandDown(dir){
@@ -39,7 +40,7 @@ setDirection(direction) {//mover el avion
     this.direction = direction;
 }
 
-checkScreen() {//definir bordes aun no va...
+checkScreen() {
     if (this.y - this.width / 2 <= 0) {
     this.direction = 1;
     } else if (this.y + this.width >= this.canvas.height) {
@@ -83,5 +84,8 @@ return false;
 loseLive() {
     this.lives--;
 }
-};
 
+points() {
+    this.points++;
+}
+};

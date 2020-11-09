@@ -24,6 +24,7 @@ const main = () => {
     const buildGameScreen = () => {
         buildDom(`
             <section class="game-screen">
+            
                 <canvas></canvas>
             </section>
 

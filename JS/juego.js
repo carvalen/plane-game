@@ -40,8 +40,8 @@ class Game {
     updateCanvas() {
         // this.player.update();
         // this.sky.update();
-        this.sky.forEach(function (paracaidistas) {
-            paracaidistas.update();
+        this.sky.forEach(function (divers) {
+            divers.update();
             });
         this.enemies.forEach((enemy) => {
             enemy.update();
@@ -55,8 +55,8 @@ class Game {
     drawCanvas() {
         this.player.draw();
         // this.sky.draw();
-        this.sky.forEach((paracaidistas) => {
-            paracaidistas.draw();
+        this.sky.forEach((divers) => {
+            divers.draw();
         });
         this.enemies.forEach((enemy) => {
             enemy.draw();
@@ -65,10 +65,15 @@ class Game {
 
     checkAllCollisions() {
         this.player.checkScreen();
-        this.sky.forEach((paracaidistas, index) => {
-            if (this.player.checkCollisionDiver(paracaidistas)) {
-                
+        this.sky.forEach((divers, index) => {
+            if (this.player.checkCollisionDiver(divers)) {
+                this.player.points();
                 this.sky.splice(index, 1);
+
+                if (this.player.points === 50) {//test
+                    this.isGameOver = true;
+                    this.onGameOver();
+                }
             }
         });
 
@@ -90,3 +95,4 @@ class Game {
         this.onGameOver = callback;
     }
 }
+
