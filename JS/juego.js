@@ -20,18 +20,15 @@ class Game {
     }
 
     startLoop() {
-        this.player = new Player(this.canvas, 2);
-        // this.sky = new Skydiver(this.canvas, 50) // parametro X
+        this.player = new Player(this.canvas, 3);
         const loop = () => {
             if (Math.random() > 0.99) {
                 const y = this.getRandomPosition(this.canvas.height);
-
                 this.enemies.push(new Enemy(this.canvas, y));
             }
 
             if (Math.random() > 0.99) {
                 const x = this.getRandomPosition(this.canvas.width);
-
                 this.sky.push(new Skydiver(this.canvas, x));
             }
 
@@ -48,8 +45,6 @@ class Game {
     }
 
     updateCanvas() {
-        // this.player.update();
-        // this.sky.update();
         this.sky.forEach(function (divers) {
             divers.update();
         });
@@ -64,7 +59,6 @@ class Game {
 
     drawCanvas() {
         this.player.draw();
-        // this.sky.draw();
         this.sky.forEach((divers) => {
             divers.draw();
         });
@@ -124,5 +118,6 @@ class Game {
     gameOverCallback(callback) {
         this.onGameOver = callback;
     }
+    
 }
 

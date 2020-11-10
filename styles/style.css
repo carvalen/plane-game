@@ -40,16 +40,34 @@ body {
     color: #fff;
     /* font-family: monospace; */
 }
- /* @media (min-width: 768px) {
-    .container {
-    max-width: 728px;
-    margin: 0 auto;
 
-    }
-}  */
 
 #aviador-img,
 #pajaro-img,
 #paracaidista-img {
     display: none;
+}
+
+.score {
+    color: #fff;
+    font-family: "DIN Alternate Bold";
+    display: flex;
+    justify-content: center;
+    
+}
+
+.points{
+    padding: 10px;
+    margin: 10px;
+    margin-left: 40px;
+}
+.timer{
+    padding: 10px;
+    margin: 10px;
+    margin-left: 40px;
+}
+.lives{
+    padding: 10px;
+    margin: 10px;
+    margin-left: 40px;
 }

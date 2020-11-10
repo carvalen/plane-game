@@ -10,10 +10,11 @@ constructor(canvas, lives) {
     this.width = 140;//tamaño imagen
     this.height = 110;
     this.img = document.getElementById('aviador-img');
-    this.speed = 40;
+    this.speed = 60;
     this.direction = 0;
     this.lives = lives;
     this.points = 0;
+    
 }
 
 setDirectionsUpandDown(dir){
@@ -22,13 +23,6 @@ setDirectionsUpandDown(dir){
 setDirectionsLeftandRight(dir){
     this.x = this.x + dir * this.speed
 }
-
-// update() {
-//      this.y = this.y + this.direction * this.speed; //vertical
-//     this.x = this.x + this.direction * this.speed; // horizontal
-//     this.checkScreen();
-// }
-
 
 draw() {
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
@@ -81,9 +75,14 @@ return false;
 
 loseLive() {
     this.lives--;
+    console.log(this.lives)
+    document.querySelector(".lives").innerText = `Lives : ${this.lives}`
 }
 
 addPoint() {
     this.points++;
+    // console.log (this.points)
+    document.querySelector(".points").innerText = `Points : ${this.points}`
 }
+
 };

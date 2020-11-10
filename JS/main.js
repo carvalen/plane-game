@@ -23,6 +23,14 @@ const main = () => {
 
     const buildGameScreen = () => {
         buildDom(`
+        <div class= "score">
+
+        <div class= "points"><p> Points: </p></div>
+        
+        <div class= "timer"><p> Timer: </p></div>
+        <div class= "lives"><p> Lives: </p></div>
+
+        </div>
             <section class="game-screen">
             
                 <canvas></canvas>
