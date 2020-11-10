@@ -8,23 +8,33 @@ class Game {
         this.enemies = [];
         this.sky = [];
         this.isGameOver = false;
-        // this.score = 0;
+        
+    }
+
+    
+    // Para mejorar la distribución de paracaidistas/enemigos, función random con un rango definido,
+    // que dependiendo de lo que quieras dibujar le pasas el alto o el ancho del canvas.
+    
+    getRandomPosition(max) {
+        return Math.random() * (max - 0);
     }
 
     startLoop() {
         this.player = new Player(this.canvas, 2);
-        // this.sky = new Skydiver(this.canvas, 50) // parametro X 
+        // this.sky = new Skydiver(this.canvas, 50) // parametro X
         const loop = () => {
-            if (Math.random() > 0.99) {//frecuencia
-                const y = Math.random() * this.canvas.height;
-                
+            if (Math.random() > 0.99) {
+                const y = this.getRandomPosition(this.canvas.height);
+
                 this.enemies.push(new Enemy(this.canvas, y));
             }
-            if (Math.random() > 0.99) {//frecuencia
-                const x = Math.random() * this.canvas.width;
+
+            if (Math.random() > 0.99) {
+                const x = this.getRandomPosition(this.canvas.width);
+
                 this.sky.push(new Skydiver(this.canvas, x));
             }
-            
+
             this.checkAllCollisions();
             this.updateCanvas();
             this.clearCanvas();
@@ -42,7 +52,7 @@ class Game {
         // this.sky.update();
         this.sky.forEach(function (divers) {
             divers.update();
-            });
+        });
         this.enemies.forEach((enemy) => {
             enemy.update();
         });
@@ -63,17 +73,34 @@ class Game {
         });
     }
 
+    isSkyOffCanvas(sky) {
+        return sky.y > this.canvas.height;
+    }
+
+    isEnemyOffCanvas(enemy) {
+        return enemy.x < 0;
+    }
+
     checkAllCollisions() {
         this.player.checkScreen();
         this.sky.forEach((divers, index) => {
             if (this.player.checkCollisionDiver(divers)) {
-                this.player.points();
+                this.player.addPoint();
                 this.sky.splice(index, 1);
 
                 if (this.player.points === 50) {//test
                     this.isGameOver = true;
                     this.onGameOver();
                 }
+            }
+
+            
+            // Funcion con isEnemyOffCanvas eliminan al paracaidista/enemigo en
+            // caso de que se hayan salido del canvas.Para que el array no se haga enorme y ponga
+            // lento el juego.
+            
+            if (this.isSkyOffCanvas(divers)) {
+                this.sky.splice(index, 1);
             }
         });
 
@@ -87,8 +114,11 @@ class Game {
                     this.onGameOver();
                 }
             }
+
+            if (this.isEnemyOffCanvas(enemy)) {
+                this.enemies.splice(index, 1);
+            }
         });
-        
     }
 
     gameOverCallback(callback) {

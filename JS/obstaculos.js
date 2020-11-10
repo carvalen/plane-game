@@ -11,15 +11,13 @@ class Enemy {
         this.y = y;
         this.speed = 5;
         this.direction = -1;
-        this.img = "./Imagenes/pajaro3.gif"
+        this.img = document.getElementById('pajaro-img');
     }
     update() {
         this.x = this.x + this.direction * this.speed;
     }
     draw() {
-        let bird = new Image();
-        bird.src = this.img;
-        this.ctx.drawImage(bird, this.x, this.y, this.width, this.height);
+        this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
     setDirection(direction) {
         this.direction = direction;

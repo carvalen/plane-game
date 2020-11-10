@@ -9,7 +9,7 @@ constructor(canvas, lives) {
     this.y = 50;
     this.width = 140;//tamaño imagen
     this.height = 110;
-    this.img = "./Imagenes/aviador.gif"
+    this.img = document.getElementById('aviador-img');
     this.speed = 40;
     this.direction = 0;
     this.lives = lives;
@@ -31,9 +31,7 @@ setDirectionsLeftandRight(dir){
 
 
 draw() {
-    let avionImg = new Image();
-    avionImg.src = this.img;
-    this.ctx.drawImage(avionImg, this.x, this.y, this.width, this.height);
+    this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
 }
 
 setDirection(direction) {//mover el avion
@@ -57,7 +55,7 @@ checkCollisionEnemy(enemy) {
     const collideLeft = this.x - this.size / 2 < enemy.x + enemy.size / 2;
     const collideTop = this.y + this.size / 2 > enemy.y - enemy.size / 2;
     const collideBottom = this.y - this.size / 2 < enemy.y + enemy.size / 2;
-    console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
+    // console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
     if (collideRight && collideLeft && collideTop && collideBottom) {
     return true;
     }
@@ -71,7 +69,7 @@ checkCollisionDiver(divers) {
     const collideLeft = this.x - this.size / 2 < divers.x + divers.size / 2;
     const collideTop = this.y + this.size / 2 > divers.y - divers.size / 2;
     const collideBottom = this.y - this.size / 2 < divers.y + divers.size / 2;
-    console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
+    // console.log (collideRight,"derecha",collideLeft,"izquierda",collideTop, "arriba",collideBottom, "abajo" )
     if (collideRight && collideLeft && collideTop && collideBottom) {
     return true;
     }
@@ -85,7 +83,7 @@ loseLive() {
     this.lives--;
 }
 
-points() {
+addPoint() {
     this.points++;
 }
 };
