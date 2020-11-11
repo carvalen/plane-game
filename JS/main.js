@@ -27,6 +27,7 @@ const main = () => {
 
         <p class= "points"> Points: </p>
         
+
         </div>
             <section class="game-screen">
             
@@ -72,8 +73,7 @@ const main = () => {
         buildDom(`
             <section class="game-over">
                 <h1>GAME OVER</h1>
-                <div class = "center"
-                <button id = "restart">RESTART</button>
+                <button>RESTART</button>
             </section>
         `);
 
