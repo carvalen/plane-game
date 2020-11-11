@@ -2,7 +2,7 @@
 
 Descripción
 
-Ha habido un accidente en un avión y la tripulación tiene que saltar pero los paracaidas están rotos, el jugador está en un avión de rescate, el cual puede mover por toda la pantalla y su objetivo es salvar el máximo de paracaidistas posible, por cada uno que salve el jugador ganará 50 puntos. La dificultad viene cuando tendrá que esquivar a la vez obstáculos, pájaros que bloquearan el motor y hará que el juego termine. 
+El jugador se puede mover por toda la pantalla y su objetivo es salvar el máximo de paracaidistas posible, por cada uno que salve el jugador ganará un punto. La dificultad viene cuando tendrá que esquivar a la vez obstáculos, tiene dos vidas y una vez que las pierda, hará que el juego termine. 
 
 MVP  (DOM - CANVAS)
 
@@ -54,7 +54,6 @@ States
 Pantalla de comienzo
 
 Cuando le das clic al botón empieza el juego
-
 Pantalla de juego-> Score, aparecerá la puntuación.
 Pantalla de game over-> Botón de restart.
 
