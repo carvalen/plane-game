@@ -13,7 +13,7 @@ const main = () => {
             <h1 id="titulo">SAVE THE SKY DIVER!</h1>
 
             <button id="start-button">START</button>
-            <p class="instructions">Use [&larr;][&uarr;][&darr;][&rarr;] to move the plane!</p>
+            <p class="instructions">Use [&larr;][&uarr;][&darr;][&rarr;] to move the plane and get points!</p>
             </div>
         </section>
         `);
@@ -25,11 +25,8 @@ const main = () => {
         buildDom(`
         <div class= "score">
 
-        <div class= "points"><p> Points: </p></div>
+        <p class= "points"> Points: </p>
         
-        <div class= "timer"><p> Timer: </p></div>
-        <div class= "lives"><p> Lives: </p></div>
-
         </div>
             <section class="game-screen">
             
@@ -75,7 +72,8 @@ const main = () => {
         buildDom(`
             <section class="game-over">
                 <h1>GAME OVER</h1>
-                <button>RESTART</button>
+                <div class = "center"
+                <button id = "restart">RESTART</button>
             </section>
         `);
 

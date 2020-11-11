@@ -20,7 +20,7 @@ class Game {
     }
 
     startLoop() {
-        this.player = new Player(this.canvas, 3);
+        this.player = new Player(this.canvas, 2);
         const loop = () => {
             if (Math.random() > 0.99) {
                 const y = this.getRandomPosition(this.canvas.height);
