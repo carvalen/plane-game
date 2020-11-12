@@ -82,10 +82,7 @@ class Game {
                 this.player.addPoint();
                 this.sky.splice(index, 1);
 
-                if (this.player.points === 50) {//test
-                    this.isGameOver = true;
-                    this.onGameOver();
-                }
+                
             }
 
             

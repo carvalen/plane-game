@@ -26,7 +26,7 @@ const main = () => {
         <div class= "score">
 
         <p class= "points"> Points: </p>
-        
+        <p class= "lives"> Lives: 3</p>
 
         </div>
             <section class="game-screen">

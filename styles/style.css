@@ -76,7 +76,7 @@ body {
     
 }
 
-.points{
+.points, .lives{
     padding: 10px;
     margin: 10px;
     margin-left: 40px;

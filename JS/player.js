@@ -75,6 +75,7 @@ return false;
 
 loseLive() {
     this.lives--;
+    document.querySelector(".lives").innerText = `Lives : ${this.points}`
 }
 
 addPoint() {
